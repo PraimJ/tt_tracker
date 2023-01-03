@@ -22,3 +22,6 @@ function GameList(props) {
 
 
 export default GameList;
+
+//props are coming from pages/index.js
+//props.games is mapped to become gamelist.

@@ -1,9 +1,10 @@
 // our-domain.com/new-game
+
 import { Fragment } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import NewGameForm from '../components/NewGameForm';
+import NewGameForm from '../components/Games/NewGameForm';
 
 function NewGamePage() {
   const router = useRouter();

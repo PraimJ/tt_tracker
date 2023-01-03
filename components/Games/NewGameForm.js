@@ -2,8 +2,8 @@
 
 
 import { useRef } from 'react';
-import Card from './UI/Card';
-import classes from './NewGameForm.module.css';
+import Card from '../UI/Card';
+import NewGame from './NewGameForm.module.css';
 
 function NewGameForm(props) {
     const winnerInputRef = useRef();
@@ -37,32 +37,32 @@ function NewGameForm(props) {
 
     return (
         <Card>
-            <form className={classes.form} onSubmit={submitHandler}>
-                <div className={classes.control}>
+            <form className={NewGame.form} onSubmit={submitHandler}>
+                <div className={NewGameForm.control}>
                     <label htmlFor='winner'>Winner Name</label>
                     <input type='text' required id='winner' ref={winnerInputRef} />
                 </div>
-                <div className={classes.control}>
+                <div className={NewGame.control}>
                     <label htmlFor='playerOne'>Player One Name</label>
                     <input type='text' required id='playerOne' ref={playerOneInputRef} />
                 </div>
-                <div className={classes.control}>
+                <div className={NewGame.control}>
                     <label htmlFor='playerTwo'>Player Two Name</label>
                     <input type='text' required id='playerTwo' ref={playerTwoInputRef} />
                 </div>
-                <div className={classes.control}>
+                <div className={NewGame.control}>
                     <label htmlFor='playerOneScore'>Player One Score</label>
                     <input type='number' required id='playerOneScore' ref={playerOneScoreInputRef} />
                 </div>
-                <div className={classes.control}>
+                <div className={NewGame.control}>
                     <label htmlFor='playerTwoScore'>Player Two Score</label>
                     <input type='number' required id='playerTwoScore' ref={playerTwoScoreInputRef} />
                 </div>
-                <div className={classes.control}>
+                <div className={NewGame.control}>
                     <label htmlFor='date'>Date of Game</label>
                     <input type='date' required id='date' ref={dateInputRef} />
                 </div>
-                <div className={classes.actions}>
+                <div className={NewGame.actions}>
                     <button>Add New Game Data</button>
                 </div>
             </form>
