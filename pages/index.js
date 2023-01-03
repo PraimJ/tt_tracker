@@ -1,20 +1,20 @@
 //HOME PAGE = our-domian.com/
 
 import { Fragment } from 'react';
-import GameList from '../components/GameList';
+import GameList from '../components/Games/GameList';
 import { MongoClient } from 'mongodb';
 
 
-//props are passed from index to gamelist
+//props are passed from index to gamelist, as games
 //When you get out of the terminal, to get back into terminal do this (npm run start)
 //NOTE 
 
 function HomePage(props) {
   console.log(props.games);
-
+  //now props.games are the info from the staticprops
   return (
     <Fragment>
-      <div>
+      <div className="w40">
         <GameList games={props.games} />
       </div>
     </Fragment>
@@ -57,4 +57,6 @@ export async function getStaticProps() {
 
 export default HomePage;
 
-
+//getStaticProps is accessing the Database when we load the page.
+//its fetching the data from the database
+//props.games(is maping through all the datasets to access all the data use the game.(the name in the database))
