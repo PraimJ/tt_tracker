@@ -9,7 +9,7 @@ import GameDetail from '../../components/Games/GameDetail';
 
 function GameDetails(props) {
     return (
-        <Fragment>
+        <>
             <Head>
                 <title>Game Details</title>
                 <meta name='description' content='Game Details' />
@@ -21,7 +21,7 @@ function GameDetails(props) {
                 playerTwoScore={props.gameData.playerTwoScore}
                 winner={props.gameData.winner}
                 date={props.gameData.date} />
-        </Fragment>
+        </>
     );
 }
 

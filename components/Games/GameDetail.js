@@ -1,12 +1,15 @@
 import Card from '../UI/Card';
+import classes from './GameDetail.module.css'
 
 function GameDetail(props) {
     return (
         <Card>
-            <div>Winner: {props.winner}</div>
-            <div>PlayerOne:{props.playerOne} & Score:{props.playerOneScore}</div>
-            <div>PlayerTwo:{props.playerTwo} & Score:{props.playerTwoScore}</div>
-            <div>Date:{props.date}</div>
+            <div className={classes.cardData}>
+                <div>Winner: {props.winner}</div>
+                <div>PlayerOne:{props.playerOne} & Score:{props.playerOneScore}</div>
+                <div>PlayerTwo:{props.playerTwo} & Score:{props.playerTwoScore}</div>
+                <div>Date:{props.date}</div>
+            </div>
         </Card>
     );
 }
