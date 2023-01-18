@@ -1,7 +1,7 @@
-// /api/new-game
-// POST /api/new-game
-
 import { MongoClient } from 'mongodb';
+
+// /api/new-player
+// POST /api/new-player
 
 async function handler(req, res) {
     if (req.method === 'POST') {
@@ -12,7 +12,7 @@ async function handler(req, res) {
         );
         const db = client.db();
 
-        const gamesCollection = db.collection('Games');
+        const gamesCollection = db.collection('players');
 
         const result = await gamesCollection.insertOne(data);
 
@@ -20,7 +20,7 @@ async function handler(req, res) {
 
         client.close();
 
-        res.status(201).json({ message: 'Game inserted!' });
+        res.status(201).json({ message: 'A new player inserted!' });
     }
 }
 
