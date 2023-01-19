@@ -1,12 +1,22 @@
+import { Fragment } from "react";
+import Link from "next/link";
+
+
 function Navbar() {
     return (
-        <>
+        <Fragment>
+
             <div>
-                <div>Home1</div>
-                <div>New Game</div>
-                <div>New Player</div>
+                <Link href="/">HOME</Link>
             </div>
-        </>
+            <div>
+                <Link href="/new-game">ADD A NEW GAME</Link>
+            </div>
+            <div>
+                <Link href="/new-player">ADD A NEW PLAYER</Link>
+            </div>
+
+        </Fragment>
     );
 }
 

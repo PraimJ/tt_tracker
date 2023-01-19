@@ -2,10 +2,10 @@
 
 import { Fragment } from 'react';
 import GameList from '../components/Games/GameList';
-import PlayersList from '../components/Players/PlayersList';
 import { MongoClient } from 'mongodb';
-import Navbar from '../components/UI/Navbar';
-import { APP_CLIENT_INTERNALS } from 'next/dist/shared/lib/constants';
+import PlayerDetails from '../components/Players/PlayerDetails';
+
+
 
 
 //props are passed from index to gamelist, as games
@@ -23,18 +23,17 @@ function HomePage(props) {
 
   if (props.games && props.games.length > 0) {
     return (
-      <>
-        <Navbar></Navbar>
-        <GameList games={props.games} players={props.players} />
-        <PlayersList players={props.players}></PlayersList>
-      </>
+      <Fragment>
+        <GameList games={props.games} />
+        <PlayerDetails games={props.games} players={props.players}></PlayerDetails>
+
+      </Fragment>
     );
   }
   return (
-    <>
-      <Navbar></Navbar>
+    <Fragment>
       <div>No Games - add one by clicking here</div>
-    </>
+    </Fragment>
   );
 };
 

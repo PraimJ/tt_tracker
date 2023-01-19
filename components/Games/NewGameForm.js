@@ -39,76 +39,16 @@ function NewGameForm(props) {
         <div >
             <form className={NewGame.form} onSubmit={submitHandler}>
 
-
-                {/* <div className={NewGame.control}>
-                    <label htmlFor='winner'>Winner's Name</label>
-                    <select id="winner" ref={winnerInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select>
+                <div className={NewGame.control}>
+                    <PlayersList passedPlayers={props.players} selectId='winner' labelText="Winner's name" refToPass={winnerInputRef}></PlayersList>
                 </div>
 
                 <div className={NewGame.control}>
-                    <label htmlFor='playerOne'>Player One</label>
-                    <select id="playerOne" ref={playerOneInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select>
+                    <PlayersList passedPlayers={props.players} selectId='playerOne' labelText="Player One" refToPass={playerOneInputRef}></PlayersList>
                 </div>
 
                 <div className={NewGame.control}>
-                    <label htmlFor='playerTwo'>Player Two</label>
-                    <select id="playerTwo" ref={playerTwoInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select>
-                </div> */}
-
-                <div className={NewGame.control}>
-                    {/* <div className={NewGame.control}>
-                    <label htmlFor='winner'>Winner's Name</label>
-                    <select id="winner" ref={winnerInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select>
-                </div> */}
-                    <PlayersList players={props.players} selectId='winner' labelText="Winner's name" refToPass={winnerInputRef}></PlayersList>
-                </div>
-
-                <div className={NewGame.control}>
-                    {/* <label htmlFor='playerOne'>Player One</label>
-                    <select id="playerOne" ref={playerOneInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select> */}
-                    <PlayersList players={props.players} selectId='playerOne' labelText="Player One" refToPass={playerOneInputRef}></PlayersList>
-                </div>
-
-                <div className={NewGame.control}>
-                    {/* <label htmlFor='playerTwo'>Player Two</label>
-                    <select id="playerTwo" ref={playerTwoInputRef}>
-                        {props.players.map((player) => (
-                            <option>
-                                {player.fullName}
-                            </option>
-                        ))}
-                    </select> */}
-                    <PlayersList players={props.players} selectId='playeTwo' labelText="Player Two" refToPass={playerTwoInputRef}></PlayersList>
+                    <PlayersList passedPlayers={props.players} selectId='playeTwo' labelText="Player Two" refToPass={playerTwoInputRef}></PlayersList>
                 </div>
 
                 <div className={NewGame.control}>

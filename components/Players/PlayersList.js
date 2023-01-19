@@ -4,23 +4,12 @@
 
 function PlayersList(props) {
 
-    if (props.players && props.players.length > 0) {
+    if (props.passedPlayers && props.passedPlayers.length > 0) {
         return (
             <>
-                {/* <label htmlFor="playerList">Select A Player</label>
-                <select id="playerList">
-                    {props.players.map((player) => (
-                        <option
-                            key={player.id}
-                            id={player.id}
-                            value={player.id}>
-                            {player.fullName}
-                        </option>
-                    ))}
-                </select> */}
                 <label htmlFor={props.selectId ? props.selectId : 'playerList'}>{props.labelText ? props.labelText : 'Select A Player'}</label>
                 <select id={props.selectId ? props.selectId : 'playerList'} ref={props.refToPass ? props.refToPass : null}>
-                    {props.players.map((player) => (
+                    {props.passedPlayers.map((player) => (
                         <option
                             key={player.id}
                             id={player.id}
