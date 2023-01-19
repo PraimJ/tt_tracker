@@ -1,5 +1,4 @@
 // our-domain.com/new-game
-import Navbar from '../components/UI/Navbar';
 
 import { Fragment } from 'react';
 import Head from 'next/head';
@@ -32,7 +31,7 @@ function NewGamePage(props) {
   }
 
   return (
-    <>
+    <Fragment>
       <Head>
         <title>Add a New Game Log </title>
         <meta
@@ -40,9 +39,8 @@ function NewGamePage(props) {
           content='Log your head to head ping-pong game scores here !!!'
         />
       </Head>
-      <Navbar></Navbar>
       <NewGameForm onAddGame={addGameHandler} players={props.players} />
-    </>
+    </Fragment>
   );
 }
 
