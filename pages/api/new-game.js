@@ -16,7 +16,7 @@ async function handler(req, res) {
 
         const result = await gamesCollection.insertOne(data);
 
-        console.log(result);
+        // console.log(result);
 
         client.close();
 
@@ -25,3 +25,6 @@ async function handler(req, res) {
 }
 
 export default handler;
+
+//This insertsOne game into the gamesCollections, its called from pages/new-game.js
+// this is api is used to communicate to the database

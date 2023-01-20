@@ -9,11 +9,11 @@ import NewGameForm from '../components/Games/NewGameForm';
 
 function NewGamePage(props) {
 
-  console.log('players', props.players);
+  // console.log('players', props.players);
   const router = useRouter();
 
   async function addGameHandler(enteredGameData) {
-    console.log("hey", enteredGameData)
+    // console.log("hey", enteredGameData)
     // add try catch logic here
     const response = await fetch('api/new-game', {
       method: 'POST',
@@ -25,7 +25,7 @@ function NewGamePage(props) {
 
     const data = await response.json();
 
-    console.log(data);
+    // console.log(data);
 
     router.push('/');
   }
@@ -76,5 +76,18 @@ export async function getStaticProps() {
 
 export default NewGamePage;
 
-// getStatisProps
+//NOTES ARE MADE FOR THE FLOW OF THE CODE//
+
+//imported Head, We expose a built-in component for appending elements to the head of the page:
+//useRouter = If you want to access the router object inside any function component in your app, you can use the useRouter hook, take a look at the following example:
+//MongoClient is used to fetch the data from database
+//we are giving props from NewGamePage Component (onAddGame, players)
+
+// the static props is getting all player object in the collection
+//if you have to use router, make it a const in the start of the function
+//when onAddGame function is active on the NewGameForm component, it calls the addGameHandler function.
+//addGameHandler take an argument called enteredGameData which is the data sent from newGameForm component. 
+//response fetches the api of api/new-game, it calls a method of post, the body is enteredGameData
+//data = is the response that is posted
+//router.push(‘/‘), after the game is posted than it send back to the indexes page
 

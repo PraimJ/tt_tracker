@@ -1,6 +1,6 @@
 import GameItem from './GameItem';
 
-// import classes from './MeetupList.module.css';
+
 
 function GameList(props) {
     return (

@@ -51,3 +51,13 @@ function NewPlayerForm(props) {
 }
 
 export default NewPlayerForm
+
+//NOTES ARE MADE FOR THE FLOW OF THE CODE//
+
+//The useRef Hook allows you to persist values between renders.
+//It can be used to store a mutable value that does not cause a re-render when updated. It can be used to access a DOM element directly.
+
+//useref takes all the current value of the element
+// on sumbit of the form call sumbithandler function, which takes all the 
+//Current values of each element and sends it to new-player.js page through
+//Through props onAddplayer

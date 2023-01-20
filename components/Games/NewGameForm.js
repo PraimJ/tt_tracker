@@ -76,3 +76,15 @@ function NewGameForm(props) {
 }
 
 export default NewGameForm
+
+//NOTES ARE MADE FOR THE FLOW OF THE CODE//
+
+//The useRef Hook allows you to persist values between renders.
+//It can be used to store a mutable value that does not cause a re-render when updated. It can be used to access a DOM element directly.
+
+//import PlayersList Component to get the props.players
+
+//useref takes all the current value of the element
+// on sumbit of the form call sumbithandler function, which takes all the 
+//Current values of each element and sends it to new-game.js page through
+//Through props onAddgame
