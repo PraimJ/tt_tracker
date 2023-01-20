@@ -1,7 +1,7 @@
-import { MongoClient } from 'mongodb';
-
 // /api/new-player
 // POST /api/new-player
+
+import { MongoClient } from 'mongodb';
 
 async function handler(req, res) {
     if (req.method === 'POST') {
@@ -25,3 +25,6 @@ async function handler(req, res) {
 }
 
 export default handler;
+
+//This insertsOne player into the playersCollections, its called from pages/new-player.js
+// this is api is used to communicate to the database

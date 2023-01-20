@@ -15,3 +15,6 @@ function GameDetail(props) {
 }
 
 export default GameDetail;
+
+//props are coming from pages/[gameID]/index.js
+// Card is just styling the component

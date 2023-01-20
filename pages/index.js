@@ -6,27 +6,21 @@ import { MongoClient } from 'mongodb';
 import PlayerDetails from '../components/Players/PlayerDetails';
 
 
-
-
 //props are passed from index to gamelist, as games
 //When you get out of the terminal, to get back into terminal do this (npm run start) or npm run dev
 //NOTE 
 
 function HomePage(props) {
 
-  console.log('games in parent', props.games);
-
-
-  // console.log('games', props.games);
-  // console.log('players', props.players);
-  //now props.games are the info from the staticprops
+  //now props.games and props.players are the info from the staticprops
+  //passing games as a prop to GameList Component
+  ////passing games & players as a prop to PlayersDetails Component
 
   if (props.games && props.games.length > 0) {
     return (
       <Fragment>
         <GameList games={props.games} />
         <PlayerDetails games={props.games} players={props.players}></PlayerDetails>
-
       </Fragment>
     );
   }
@@ -37,10 +31,7 @@ function HomePage(props) {
   );
 };
 
-
-
 export async function getStaticProps() {
-
 
   const client = await MongoClient.connect(
     'mongodb+srv://PraimJutla:808808808@cluster0.iueoo0d.mongodb.net/PingPongTrackerDb?retryWrites=true&w=majority'
@@ -50,7 +41,7 @@ export async function getStaticProps() {
   // NTS - change these to use await Promise.all
   const gamesCollection = db.collection('Games');
   const games = await gamesCollection.find().toArray();
-  console.log('games in the actual static props', games);
+  // console.log('games in the actual static props', games);
 
   const playersCollection = db.collection('players');
   const players = await playersCollection.find().toArray();
