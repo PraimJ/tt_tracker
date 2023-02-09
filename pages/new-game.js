@@ -63,7 +63,8 @@ export async function getStaticProps() {
         id: player._id.toString(),
         fullName: player.fullName,
         dateOfBirth: player.dateOfBirth,
-        description: player.description
+        description: player.description,
+        image: player.image
       })),
 
     },
