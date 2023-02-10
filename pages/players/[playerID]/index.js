@@ -1,7 +1,7 @@
 //SHOW UPDATE PLAYER PAGE = our-domian.com/(playerID)
 
 import { MongoClient, ObjectId } from 'mongodb';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import Head from 'next/head';
 // import PlayerForm from '../../../components/Players/PlayerForm';
 import { Router } from 'next/router';
@@ -21,8 +21,51 @@ function PlayerUpdatePage(props) {
     // };
 
 
+
+    const [playerName, setPlayerName] = useState(props.playerData.fullName);
+    const [playerDOB, setPlayerDOB] = useState(props.playerData.dateOfBirth);
+    const [playerDescription, setPlayerDescription] = useState(props.playerData.description);
+    const [playerImage, setPlayerImage] = useState(props.playerData.image);
+
+    const onSetPlayerDescriptionHandler = (event) => {
+        setPlayerDescription(event.target.value);
+    }
+
+    const onSetPlayerNameHandler = (event) => {
+        setPlayerName(event.target.value);
+    }
+
+    const onSetPlayerDOBHandler = (event) => {
+        setPlayerDOB(event.target.value);
+    }
+
+    const onSetPlayerImageHandler = e => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            setPlayerImage(reader.result.toString());
+        };
+        reader.readAsDataURL(file)
+    };
+
+    const updatedPlayerName = playerName;
+    const updatedPlayerDOB = playerDOB;
+    const updatedPlayerDescription = playerDescription;
+    const updatedPlayerImage = playerImage;
+
+
+    const updatedPlayerData = {
+        fullName: updatedPlayerName,
+        dateOfBirth: updatedPlayerDescription,
+        description: updatedPlayerDOB,
+        image: updatedPlayerImage
+    };
+
+
+
     const onUpdatePlayerHandler = async (playerID) => {
-        console.log(up);
+        console.log(updatedPlayerData);
         try {
             const response = await fetch(`/api/update-player/${playerID}`, {
                 method: "PUT",
@@ -30,10 +73,10 @@ function PlayerUpdatePage(props) {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    fullName: up.fullName,
-                    dateOfBirth: up.dateOfBirth,
-                    description: up.description,
-                    image: up.image
+                    fullName: updatedPlayerData.fullName,
+                    dateOfBirth: updatedPlayerData.dateOfBirth,
+                    description: updatedPlayerData.description,
+                    image: updatedPlayerData.image
                 }),
             });
 
@@ -43,20 +86,6 @@ function PlayerUpdatePage(props) {
             "Something went wrong!";
         }
     };
-
-
-    const [playerName, setPlayerName] = useState(props.playerData.fullName);
-    const [playerDOB, setPlayerDOB] = useState(props.playerData.dateOfBirth);
-    const [playerDescription, setPlayerDescription] = useState(props.playerData.description);
-    const [image, setImageOne] = useState(props.playerData.image);
-
-    useEffect(() => {
-        setPlayerName(playerName);
-        setPlayerDOB(playerDOB);
-        setPlayerDescription(playerDescription);
-        setImageOne(image);
-
-    }, [props.playerData]);
 
 
 
@@ -71,98 +100,36 @@ function PlayerUpdatePage(props) {
                 <form onSubmit={onUpdatePlayerHandler}>
                     <div>
                         <label htmlFor='playerName'>New Player's Name</label>
-                        <input type='text' required id='playerName' value={props.playerData.fullName} onChange={(e) => onSetPlayerNameHandler(e.target.value)} />
+                        <input type='text' required id='playerName' value={playerName} onChange={onSetPlayerNameHandler}
+                        />
                     </div>
                     <div >
                         <label htmlFor='DOB'>Date of Birth</label>
-                        <input type='date' required id='DOB' value={props.playerData.dateOfBirth} onChange={(e) => onSetPlayerDOBHandler(e.target.value)} />
+                        <input type='date' required id='DOB' value={playerDOB} onChange={onSetPlayerDOBHandler} />
                     </div>
                     <div>
                         <label htmlFor='description'>Player's Description</label>
-                        <input type='text' required id='description' value={props.playerData.description} onChange={(e) => onSetPlayerDescriptionHandler(e.target.value)} />
+                        <input type='text' required id='description' value={playerDescription} onChange={onSetPlayerDescriptionHandler} />
                     </div>
                     <div >
-                        {image ? (
-                            <img src={image} />
+                        {props.playerData.image ? (
+                            <img src={props.playerData.image} />
                         ) : (
                             <div>
                                 <label htmlFor='image'>Upload Player's Image</label>
-                                <input id='image' type='file' required value={props.playerData.image} onChange={e => convert2base64(e)} />
+                                <input id='image' type='file' required value={image} onChange={onSetPlayerImageHandler} />
                             </div>
                         )}
                     </div>
                     <div>
 
-                        <button>`Update ${props.playerData.fullName}`</button>
+                        <button> Update {props.playerData.fullName} </button>
                     </div>
                 </form>
             </div>
         </>
     );
-}
-
-//     const [playerName, setPlayerName] = useState(props?.playerToUpdate ? props.playerToUpdate.fullName : '');
-//     const [playerDOB, setPlayerDOB] = useState(props?.playerToUpdate ? props.playerToUpdate.dateOfBirth : '');
-//     const [playerDescription, setPlayerDescription] = useState(props?.playerToUpdate ? props.playerToUpdate.description : '');
-//     const [image, setImageOne] = useState(props?.playerToUpdate ? props.playerToUpdate.image : '');
-
-//     const onSetPlayerNameHandler = (event) => {
-//         setPlayerName(event.target.value);
-//     }
-//     const onSetPlayerDOBHandler = (event) => {
-//         setPlayerDOB(event.target.value);
-//     }
-//     const onSetPlayerDescriptionHandler = (event) => {
-//         setPlayerDescription(event.target.value);
-//     }
-
-//     const convert2base64 = e => {
-//         const file = e.target.files[0];
-//         const reader = new FileReader();
-
-//         reader.onloadend = () => {
-//             setImageOne(reader.result.toString());
-//         };
-//         reader.readAsDataURL(file)
-//     };
-
-//     function submitHandler(event) {
-//         event.preventDefault();
-
-//         const enteredPlayerName = playerName;
-//         const enteredDOB = playerDOB;
-//         const enteredDescription = playerDescription;
-
-
-//         const playerData = {
-//             fullName: enteredPlayerName,
-//             dateOfBirth: enteredDOB,
-//             description: enteredDescription,
-//             image: image
-//         };
-
-//         props.onPlayerFormComplete(playerData);
-//     }
-
-//     return (
-//        
-//     );
-// }
-
-// export default PlayerForm;
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
 
 export async function getStaticPaths() {
     const client = await MongoClient.connect(

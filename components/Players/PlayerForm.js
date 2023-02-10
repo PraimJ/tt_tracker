@@ -57,7 +57,7 @@ function PlayerForm(props) {
             <form className={NewPlayer.form} onSubmit={submitHandler}>
                 <div className={NewPlayer.control}>
                     <label htmlFor='playerName'>New Player's Name</label>
-                    <input type='text' required id='playerName' value={playerName} onChange={onSetPlayerNameHandler} />
+                    <input type='text' required id='playerName' value={playerName} onChange={sonSetPlayerNameHandler} />
                 </div>
                 <div className={NewPlayer.control}>
                     <label htmlFor='DOB'>Date of Birth</label>

@@ -4,8 +4,8 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-// import NewPlayerForm from '../components/Players/NewPlayerForm';
-import PlayerForm from '../components/Players/PlayerForm';
+import NewPlayerForm from '../components/Players/NewPlayerForm';
+// import PlayerForm from '../components/Players/PlayerForm';
 
 function NewPlayerPage() {
   const router = useRouter();
@@ -35,8 +35,8 @@ function NewPlayerPage() {
           content='Add yourself as a player'
         />
       </Head>
-      {/* <NewPlayerForm onAddPlayer={addPlayerHandler} /> */}
-      <PlayerForm onPlayerFormComplete={addPlayerHandler} />
+      <NewPlayerForm onAddPlayer={addPlayerHandler} />
+      {/* <PlayerForm onPlayerFormComplete={addPlayerHandler} /> */}
     </Fragment>
   );
 }
