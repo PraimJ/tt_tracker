@@ -7,7 +7,14 @@
 
 body {
     font-family: 'Open Sans', 'Lato', sans-serif;
+    font-weight: bold;
     margin: 0;
+    /* background:
+        url('./public/tt_tracker_background.png'); */
+    /* background: url('../public/tt_tracker_background.png'); */
+
+
+
 }
 
 .w40 {

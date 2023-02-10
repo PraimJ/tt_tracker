@@ -11,8 +11,11 @@ function GameList(props) {
                         key={gamelist.id}
                         id={gamelist.id}
                         playerOne={gamelist.playerOne.fullName}
+                        playerOneImage={gamelist.playerOne.image}
                         playerTwo={gamelist.playerTwo.fullName}
+                        playerTwoImage={gamelist.playerTwo.image}
                         winner={gamelist.winner.fullName}
+                        winnerImage={gamelist.winner.image}
                         date={gamelist.date}
                         playerOneScore={gamelist.playerOneScore}
                         playerTwoScore={gamelist.playerTwoScore}

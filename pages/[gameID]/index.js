@@ -15,10 +15,13 @@ function GameDetails(props) {
             </Head>
             <GameDetail
                 playerOne={props.gameData.playerOne}
+                playerOneImage={props.gameData.playerOneImage}
                 playerTwo={props.gameData.playerTwo}
+                playerTwoImage={props.gameData.playerTwoImage}
                 playerOneScore={props.gameData.playerOneScore}
                 playerTwoScore={props.gameData.playerTwoScore}
                 winner={props.gameData.winner}
+                winnerImage={props.gameData.winnerImage}
                 date={props.gameData.date} />
         </Fragment>
     );
@@ -66,9 +69,12 @@ export async function getStaticProps(context) {
         props: {
             gameData: {
                 id: selectedGame._id.toString(),
-                playerOne: selectedGame.playerOne,
-                playerTwo: selectedGame.playerTwo,
-                winner: selectedGame.winner,
+                playerOne: selectedGame.playerOne.fullName,
+                playerOneImage: selectedGame.playerOne.image,
+                playerTwo: selectedGame.playerTwo.fullName,
+                playerTwoImage: selectedGame.playerTwo.image,
+                winner: selectedGame.winner.fullName,
+                winnerImage: selectedGame.winner.image,
                 date: selectedGame.date,
                 playerOneScore: selectedGame.playerOneScore,
                 playerTwoScore: selectedGame.playerTwoScore

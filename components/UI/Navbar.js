@@ -15,6 +15,9 @@ function Navbar() {
             <div>
                 <Link href="/new-player">ADD A NEW PLAYER</Link>
             </div>
+            <div>
+                <Link href="/head-to-head">HEAD TO HEAD</Link>
+            </div>
 
         </Fragment>
     );

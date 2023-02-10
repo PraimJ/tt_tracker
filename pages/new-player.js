@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import NewPlayerForm from '../components/Players/NewPlayerForm';
+// import PlayerForm from '../components/Players/PlayerForm';
 
 function NewPlayerPage() {
   const router = useRouter();
@@ -35,6 +36,7 @@ function NewPlayerPage() {
         />
       </Head>
       <NewPlayerForm onAddPlayer={addPlayerHandler} />
+      {/* <PlayerForm onPlayerFormComplete={addPlayerHandler} /> */}
     </Fragment>
   );
 }

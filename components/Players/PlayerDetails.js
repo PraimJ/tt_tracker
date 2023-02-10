@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Classes from './PlayerDetails.module.css';
 import PlayersList from "./PlayersList";
 
 
 
 function PlayerDetails(props) {
+
+    const router = useRouter();
+
+    function updatePlayerHandler() {
+        console.log(currentPlayer);
+        router.push('/players/' + currentPlayer.id)
+    };
 
 
     const formatCurrentPlayerWithGameData = (passedCurrentPlayer) => {
@@ -29,6 +37,7 @@ function PlayerDetails(props) {
             }
         });
         return {
+            image: passedCurrentPlayer.image,
             id: passedCurrentPlayer.id,
             fullName: passedCurrentPlayer.fullName,
             dateOfBirth: passedCurrentPlayer.dateOfBirth,
@@ -61,12 +70,16 @@ function PlayerDetails(props) {
                     passCurrentPlayerValueToParent={setCurrentPlayerHandler}>
                 </PlayersList>
                 <div>
+                    {/* <img src={currentPlayer?.image} alt={currentPlayer?.fullName} /> */}
                     <div>Player Name: {currentPlayer?.fullName}</div>
                     <div>Player DOB: {currentPlayer?.dateOfBirth}</div>
                     <div>Player Description: {currentPlayer?.description}</div>
                     <div>Total Points Scored: {currentPlayer?.totalPoints}</div>
                     <div>Wins: {currentPlayer?.wins}</div>
                     <div>Losses: {currentPlayer?.losses}</div>
+                    <div>
+                        <button onClick={updatePlayerHandler}>Update Player / Delete Player</button>
+                    </div>
                 </div>
             </div>
         );
@@ -80,7 +93,8 @@ function PlayerDetails(props) {
     );
 
 
-}
+
+};
 
 export default PlayerDetails;
 
@@ -110,5 +124,4 @@ export default PlayerDetails;
 //passCurrentPlayerValueToParent is coming from PlayersLIst component and giving us the value that we need to pass which is passedPlayer.
 //in the div is eterating through the currentPlayer’s object
 
-//The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called is undefined or null, it returns undefined instead of throwing an error.
-
+//The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called is undefined or null, it returns undefined instead of throwing an error.//

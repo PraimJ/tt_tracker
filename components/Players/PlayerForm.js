@@ -1,12 +1,28 @@
 //For pages/new-player.js
 
-
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import NewPlayer from './NewPlayerForm.module.css';
 
-function NewPlayerForm(props) {
+function PlayerForm(props) {
 
-    const [image, setImageOne] = useState('');
+    if (props?.playerToUpdate) {
+        console.log('in edit mode', props.playerToUpdate);
+    }
+
+    const [playerName, setPlayerName] = useState(props?.playerToUpdate ? props.playerToUpdate.fullName : '');
+    const [playerDOB, setPlayerDOB] = useState(props?.playerToUpdate ? props.playerToUpdate.dateOfBirth : '');
+    const [playerDescription, setPlayerDescription] = useState(props?.playerToUpdate ? props.playerToUpdate.description : '');
+    const [image, setImageOne] = useState(props?.playerToUpdate ? props.playerToUpdate.image : '');
+
+    const onSetPlayerNameHandler = (event) => {
+        setPlayerName(event.target.value);
+    }
+    const onSetPlayerDOBHandler = (event) => {
+        setPlayerDOB(event.target.value);
+    }
+    const onSetPlayerDescriptionHandler = (event) => {
+        setPlayerDescription(event.target.value);
+    }
 
     const convert2base64 = e => {
         const file = e.target.files[0];
@@ -18,20 +34,12 @@ function NewPlayerForm(props) {
         reader.readAsDataURL(file)
     };
 
-
-    const playerNameRef = useRef();
-    const DOBRef = useRef();
-    const descriptionRef = useRef();
-    // const imageRef = useRef();
-
-
     function submitHandler(event) {
         event.preventDefault();
 
-        const enteredPlayerName = playerNameRef.current.value;
-        const enteredDOB = DOBRef.current.value;
-        const enteredDescription = descriptionRef.current.value;
-        // const enteredImage = imageRef.current.value;
+        const enteredPlayerName = playerName;
+        const enteredDOB = playerDOB;
+        const enteredDescription = playerDescription;
 
 
         const playerData = {
@@ -41,7 +49,7 @@ function NewPlayerForm(props) {
             image: image
         };
 
-        props.onAddPlayer(playerData);
+        props.onPlayerFormComplete(playerData);
     }
 
     return (
@@ -49,15 +57,15 @@ function NewPlayerForm(props) {
             <form className={NewPlayer.form} onSubmit={submitHandler}>
                 <div className={NewPlayer.control}>
                     <label htmlFor='playerName'>New Player's Name</label>
-                    <input type='text' required id='playerName' value={'John Doe'} ref={playerNameRef} />
+                    <input type='text' required id='playerName' value={playerName} onChange={sonSetPlayerNameHandler} />
                 </div>
                 <div className={NewPlayer.control}>
                     <label htmlFor='DOB'>Date of Birth</label>
-                    <input type='date' required id='DOB' ref={DOBRef} />
+                    <input type='date' required id='DOB' value={playerDOB} onChange={onSetPlayerDOBHandler} />
                 </div>
                 <div className={NewPlayer.control}>
                     <label htmlFor='description'>Player's Description</label>
-                    <input type='text' required id='description' ref={descriptionRef} />
+                    <input type='text' required id='description' value={playerDescription} onChange={onSetPlayerDescriptionHandler} />
                 </div>
                 <div className={NewPlayer.control}>
                     {image ? (
@@ -70,14 +78,15 @@ function NewPlayerForm(props) {
                     )}
                 </div>
                 <div className={NewPlayer.actions}>
-                    <button>Add New Player</button>
+
+                    <button>{props.playerToUpdate ? `Update ${props.playerToUpdate.fullName}` : 'Add New Player'}</button>
                 </div>
             </form>
         </div>
     );
 }
 
-export default NewPlayerForm
+export default PlayerForm;
 
 //NOTES ARE MADE FOR THE FLOW OF THE CODE//
 
