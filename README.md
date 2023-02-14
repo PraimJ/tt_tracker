@@ -25,8 +25,13 @@ We have a head to head feature that compares your matches with another player on
 
 
 Step 1 - Make your player
+
 Step 2 - Make a game with another player on the app
+
 Step 3 - Log the game score
+
 Step 4 - Go to Head to Head and you will see your stats with the other player
+
 Step 5 - On the home page you can select yourself as a player to show player details Wins, Losses, Points Scored and More. 
+
 Step 6 - If you want to delete or Update a player or game go the either player detail page or game detail page. 
