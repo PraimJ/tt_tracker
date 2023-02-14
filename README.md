@@ -18,17 +18,15 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+tt-tracker (Table Tennis Tracker) 
+This is an app that logs players and table tennis games for matches up to 21. 
+Each player has a Detail Page. Each Game has a Detail Page. 
+We have a head to head feature that compares your matches with another player on the app. 
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Step 1 - Make your player
+Step 2 - Make a game with another player on the app
+Step 3 - Log the game score
+Step 4 - Go to Head to Head and you will see your stats with the other player
+Step 5 - On the home page you can select yourself as a player to show player details Wins, Losses, Points Scored and More. 
+Step 6 - If you want to delete or Update a player or game go the either player detail page or game detail page. 
