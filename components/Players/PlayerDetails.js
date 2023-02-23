@@ -9,7 +9,7 @@ function PlayerDetails(props) {
 
     const router = useRouter();
 
-    function updatePlayerHandler() {
+    function PlayerDetailPageHandler() {
         console.log(currentPlayer);
         router.push('/players/' + currentPlayer.id)
     };
@@ -70,7 +70,7 @@ function PlayerDetails(props) {
                     passCurrentPlayerValueToParent={setCurrentPlayerHandler}>
                 </PlayersList>
                 <div>
-                    {/* <img src={currentPlayer?.image} alt={currentPlayer?.fullName} /> */}
+                    <img src={currentPlayer?.image} alt={currentPlayer?.fullName} />
                     <div>Player Name: {currentPlayer?.fullName}</div>
                     <div>Player DOB: {currentPlayer?.dateOfBirth}</div>
                     <div>Player Description: {currentPlayer?.description}</div>
@@ -78,7 +78,7 @@ function PlayerDetails(props) {
                     <div>Wins: {currentPlayer?.wins}</div>
                     <div>Losses: {currentPlayer?.losses}</div>
                     <div>
-                        <button onClick={updatePlayerHandler}>Update Player / Delete Player</button>
+                        <button onClick={PlayerDetailPageHandler}>Update Player / Delete Player</button>
                     </div>
                 </div>
             </div>
