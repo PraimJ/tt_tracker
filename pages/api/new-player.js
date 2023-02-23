@@ -3,6 +3,14 @@
 
 import { MongoClient } from 'mongodb';
 
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '10mb',
+        },
+    },
+}
+
 async function handler(req, res) {
     if (req.method === 'POST') {
         const data = req.body;
